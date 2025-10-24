@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "home": "Home",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Marwan Ahmed Aouni El-Agha",
+    "title": "Candidate of the Arab Republic of Egypt",
+    "subtitle": "for the Arab Scout Committee – Youth Advisors",
+    "years": "2025–2028"
+  },
+  "cv": {
+    "title": "About Me",
+    "download": "Download CV (PDF)",
+    "content": "Egyptian lawyer specialized in international law and Middle East studies. He has published works on the history of international law, 19th-century Middle Eastern legal systems, and international criminal law. He practices law in Egypt in the areas of technology, media, and telecommunications law at Adsiro Ragy Suleiman & Partners. He also serves as a judge in numerous regional and international moot court competitions. He graduated from The Hague Academy of International Law (Netherlands), Cairo University (Egypt), and Tanta University (Egypt).\n\nHe has over three years of experience providing legal advice to the Egyptian government and the Arab Scout Region on matters of international law and public policy.\n\nHe joined the scouting movement as a Cub in 2008 with the historic Al-Salam Scout Groups and has represented the Arab Republic of Egypt at dozens of international and regional scouting events, including the 43rd World Scout Conference, the 24th World Scout Jamboree in the United States, the Centenary of the World Scout Centre in Switzerland, the 30th Arab Scout Camp, and the 1st–3rd Arab Young Media Scouts Forums in Egypt and Lebanon.\n\nHe is a Lord Baden-Powell Fellowship laureate from the World Scout Foundation, a recipient of the World Organization of the Scout Movement's \"Messengers of Peace Champions\" award at the 73rd UN General Assembly, and a recipient of the World Scout Environment Medal. In Egypt he holds decorations for Bravery, Public Service, and Volunteering, and he is a member of the World Scout Centre (Kandersteg) General Assembly in Switzerland. He is a founding member of the Egyptian Scouting Archive and co-author of a book on the history of Egyptian scouting postage stamps."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "I'd love to hear from you",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject (optional)",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred. Please try again."
+    },
+    "social": "Connect on Social Media"
+  }
+}
