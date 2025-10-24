@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Send, Mail, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { Send, Mail, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 export default function ContactForm() {
   const { t } = useTranslation();
@@ -65,31 +65,27 @@ export default function ContactForm() {
     }
   };
 
-  // Social media links - Replace with actual links
+  // Social media links (formal, no hover effects)
   const socialLinks = [
     {
       name: 'Facebook',
       icon: Facebook,
-      url: 'https://facebook.com/marwanelagha',
-      color: 'hover:bg-blue-600',
+      url: 'https://www.facebook.com/marwanawnyelagha/',
     },
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/marwanelagha',
-      color: 'hover:bg-pink-600',
+      url: 'https://www.instagram.com/marwan.awny?igsh=MXR4a3pwbzE0eHQwOA%3D%3D&utm_source=qr',
     },
     {
-      name: 'WhatsApp',
-      icon: MessageCircle,
-      url: 'https://wa.me/201234567890', // Replace with actual number
-      color: 'hover:bg-green-600',
+      name: 'LinkedIn',
+      icon: Linkedin,
+      url: 'https://www.linkedin.com/in/marwanawny/',
     },
     {
       name: 'Email',
       icon: Mail,
       url: 'mailto:marwan@example.com', // Replace with actual email
-      color: 'hover:bg-gray-600',
     },
   ];
 
@@ -111,7 +107,7 @@ export default function ContactForm() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg transition-all ${link.color} shadow-md hover:shadow-lg`}
+              className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg shadow-md transition-opacity duration-200 hover:opacity-85"
               aria-label={link.name}
             >
               <link.icon size={20} />
@@ -152,7 +148,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${
+              className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
                 isRTL ? 'text-right font-arabic' : 'text-left'
               }`}
             />
@@ -220,7 +216,7 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               rows={6}
-              className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none ${
+              className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none ${
                 isRTL ? 'text-right font-arabic' : 'text-left'
               }`}
             />
@@ -230,7 +226,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === 'sending'}
-            className={`w-full flex items-center justify-center gap-3 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed ${
+            className={`w-full flex items-center justify-center gap-3 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg shadow-md transition-opacity duration-200 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:opacity-50 ${
               isRTL ? 'font-arabic' : ''
             }`}
           >

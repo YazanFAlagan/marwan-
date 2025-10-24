@@ -50,7 +50,7 @@ export default function CVSection() {
               {/* Download CV Button */}
               <button
                 onClick={handleDownloadCV}
-                className={`mt-8 inline-flex items-center gap-3 px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all shadow-md hover:shadow-lg ${
+                className={`mt-8 inline-flex items-center gap-3 px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg shadow-md transition-opacity duration-200 hover:opacity-90 ${
                   isRTL ? 'font-arabic' : ''
                 }`}
               >

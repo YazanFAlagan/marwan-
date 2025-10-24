@@ -4,7 +4,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "name": "Marwan Ahmed Aouni El-Agha",
+    "name": "Marwan Ahmed Awny Elagha",
     "title": "Candidate of the Arab Republic of Egypt",
     "subtitle": "for the Arab Scout Committee – Youth Advisors",
     "years": "2025–2028"
@@ -28,5 +28,10 @@
       "error": "An error occurred. Please try again."
     },
     "social": "Connect on Social Media"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved."
   }
 }

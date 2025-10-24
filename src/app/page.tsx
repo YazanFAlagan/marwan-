@@ -3,6 +3,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import CVSection from '@/components/CVSection';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <CVSection />
+      <Footer />
     </main>
   );
 }

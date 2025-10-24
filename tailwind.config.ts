@@ -23,8 +23,8 @@ const config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        arabic: ['Cairo', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-garamond)', 'EB Garamond', 'Garamond', 'serif'],
+        arabic: ['var(--font-arabic)', 'Amiri', 'Sakkal Majalla', 'Traditional Arabic', 'serif'],
       },
     },
   },

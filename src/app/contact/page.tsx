@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Navbar from '@/components/Navbar';
 import ContactForm from '@/components/ContactForm';
+import Footer from '@/components/Footer';
 
 export default function ContactPage() {
   const { t } = useTranslation();
@@ -42,6 +43,8 @@ export default function ContactPage() {
           <ContactForm />
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }

@@ -43,13 +43,13 @@ export default function Gallery() {
       {images.map((image) => (
         <div
           key={image.id}
-          className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group"
+          className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md"
         >
           <Image
             src={image.src}
             alt={image.alt}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover"
             sizes="(max-width: 768px) 50vw, 25vw"
           />
         </div>
