@@ -1,5 +1,6 @@
 // Simple in-memory rate limiter
-// For production, consider using Redis or a database
+// For serverless environments, this resets on each cold start
+// For production with persistent rate limiting, consider using Redis or a database
 
 interface RateLimitEntry {
   count: number;
@@ -8,21 +9,26 @@ interface RateLimitEntry {
 
 const rateLimitMap = new Map<string, RateLimitEntry>();
 
-// Clean up old entries every hour
-setInterval(() => {
+// Clean up old entries on-demand instead of using setInterval (not serverless-friendly)
+function cleanupExpiredEntries() {
   const now = Date.now();
   for (const [key, value] of rateLimitMap.entries()) {
     if (now > value.resetTime) {
       rateLimitMap.delete(key);
     }
   }
-}, 60 * 60 * 1000);
+}
 
 export function checkRateLimit(
   identifier: string,
   maxRequests: number = 10,
   windowMs: number = 60 * 60 * 1000 // 1 hour
 ): { allowed: boolean; remaining: number; resetTime: number } {
+  // Clean up expired entries periodically
+  if (Math.random() < 0.1) { // 10% chance to cleanup on each call
+    cleanupExpiredEntries();
+  }
+  
   const now = Date.now();
   const entry = rateLimitMap.get(identifier);
 

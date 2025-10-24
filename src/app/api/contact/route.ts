@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendEmail, sanitizeInput, validateEmail } from '@/lib/email';
 import { checkRateLimit } from '@/lib/rateLimit';
 
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function POST(request: NextRequest) {
   try {
     // Get client IP for rate limiting
