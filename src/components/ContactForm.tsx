@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Send, Mail, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Send, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 export default function ContactForm() {
   const { t } = useTranslation();
@@ -81,11 +81,6 @@ export default function ContactForm() {
       name: 'LinkedIn',
       icon: Linkedin,
       url: 'https://www.linkedin.com/in/marwanawny/',
-    },
-    {
-      name: 'Email',
-      icon: Mail,
-      url: 'mailto:marwan@example.com', // Replace with actual email
     },
   ];
 
