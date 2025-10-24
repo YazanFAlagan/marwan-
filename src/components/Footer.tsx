@@ -26,7 +26,7 @@ export default function Footer() {
                 className="object-contain"
               />
               <h3 className={`text-xl font-bold ${isRTL ? 'font-arabic' : ''}`}>
-                {isRTL ? 'م. الأغا' : 'M. Elagha'}
+                {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}
               </h3>
             </div>
             <p className={`text-gray-400 ${isRTL ? 'font-arabic' : ''}`}>
@@ -52,6 +52,16 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/news"
+                  className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
+                    isRTL ? 'font-arabic' : ''
+                  }`}
+                >
+                  {t('nav.news')}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
                     isRTL ? 'font-arabic' : ''
@@ -68,7 +78,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className={`text-gray-400 text-sm ${isRTL ? 'font-arabic' : ''}`}>
-              {new Date().getFullYear()} © {isRTL ? 'م. الأغا' : 'M. Elagha'}. {t('footer.rights')}
+              {new Date().getFullYear()} © {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}. {t('footer.rights')}
             </p>
             
             {/* Social Links */}

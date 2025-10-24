@@ -45,8 +45,8 @@ export default function Navbar() {
             />
             <span className={`text-xl font-bold ${
               scrolled ? 'text-primary-700' : 'text-white'
-            }`}>
-              {isRTL ? 'م. الأغا' : 'M. Elagha'}
+            } ${isRTL ? 'font-arabic' : ''}`}>
+              {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}
             </span>
           </Link>
 
@@ -56,15 +56,23 @@ export default function Navbar() {
               href="/"
               className={`font-medium transition-opacity duration-200 hover:opacity-70 ${
                 scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              } ${isRTL ? 'font-arabic' : ''}`}
             >
               {t('nav.home')}
+            </Link>
+            <Link
+              href="/news"
+              className={`font-medium transition-opacity duration-200 hover:opacity-70 ${
+                scrolled ? 'text-gray-700' : 'text-white'
+              } ${isRTL ? 'font-arabic' : ''}`}
+            >
+              {t('nav.news')}
             </Link>
             <Link
               href="/contact"
               className={`font-medium transition-opacity duration-200 hover:opacity-70 ${
                 scrolled ? 'text-gray-700' : 'text-white'
-              }`}
+              } ${isRTL ? 'font-arabic' : ''}`}
             >
               {t('nav.contact')}
             </Link>
@@ -80,7 +88,7 @@ export default function Navbar() {
               aria-label="Toggle language"
             >
               <Globe size={18} />
-              <span className="text-sm font-medium">
+              <span className={`text-sm font-medium ${language === 'en' ? 'font-arabic' : ''}`}>
                 {language === 'en' ? 'العربية' : 'English'}
               </span>
             </button>

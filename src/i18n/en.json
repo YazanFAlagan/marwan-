@@ -1,12 +1,13 @@
 {
   "nav": {
     "home": "Home",
+    "news": "News",
     "contact": "Contact"
   },
   "hero": {
     "name": "Marwan Ahmed Awny Elagha",
-    "title": "Candidate of the Arab Republic of Egypt",
-    "subtitle": "for the Arab Scout Committee – Youth Advisors",
+    "title": "Candidate of the Arab Republic of Egypt for the Arab Scout Committee – Youth Advisors",
+    "subtitle": "",
     "years": "2025–2028"
   },
   "cv": {
@@ -28,6 +29,13 @@
       "error": "An error occurred. Please try again."
     },
     "social": "Connect on Social Media"
+  },
+  "news": {
+    "title": "News",
+    "subtitle": "Latest updates and announcements",
+    "readMore": "Read More",
+    "noNews": "No news available at the moment.",
+    "comingSoon": "Stay tuned for upcoming news and announcements."
   },
   "footer": {
     "quickLinks": "Quick Links",

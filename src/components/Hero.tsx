@@ -12,13 +12,21 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: "url('/marwan.jpg')",
+          backgroundPosition: '-100px 20px',
         }}
       >
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+        {/* Gradient Overlay - darker on left, lighter on right where person is */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/20" />
+        {/* Spotlight effect on the person */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: 'radial-gradient(circle at 20% 40%, transparent 15%, rgba(0,0,0,0.3) 40%)'
+          }}
+        />
       </div>
 
       {/* Content */}
