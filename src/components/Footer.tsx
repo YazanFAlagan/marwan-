@@ -17,17 +17,57 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Logo and About */}
           <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-            <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Logo"
-                width={40}
-                height={40}
-                className="object-contain"
-              />
+            <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
               <h3 className={`text-xl font-bold ${isRTL ? 'font-arabic' : ''}`}>
                 {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}
               </h3>
+              <div className="flex items-center gap-3 flex-wrap">
+                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                  <Image
+                    src="/Logo 1 .png"
+                    alt="Partner Logo 1"
+                    width={80}
+                    height={50}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                  <Image
+                    src="/Logo 2.png"
+                    alt="Partner Logo 2"
+                    width={80}
+                    height={50}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                  <Image
+                    src="/Logo 3.png"
+                    alt="Partner Logo 3"
+                    width={80}
+                    height={50}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                  <Image
+                    src="/Logo 4.png"
+                    alt="Partner Logo 4"
+                    width={80}
+                    height={50}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                  <Image
+                    src="/Logo 5.png"
+                    alt="Partner Logo 5"
+                    width={80}
+                    height={50}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+              </div>
             </div>
             <p className={`text-gray-400 ${isRTL ? 'font-arabic' : ''}`}>
               {t('hero.title')}
@@ -48,6 +88,36 @@ export default function Footer() {
                   }`}
                 >
                   {t('nav.home')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/work-plan"
+                  className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
+                    isRTL ? 'font-arabic' : ''
+                  }`}
+                >
+                  {t('nav.workPlan')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/youth-advisors"
+                  className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
+                    isRTL ? 'font-arabic' : ''
+                  }`}
+                >
+                  {t('nav.youthAdvisors')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/scout-movement"
+                  className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
+                    isRTL ? 'font-arabic' : ''
+                  }`}
+                >
+                  {t('nav.scoutMovement')}
                 </Link>
               </li>
               <li>

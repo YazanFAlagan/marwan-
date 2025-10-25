@@ -1,6 +1,9 @@
 {
   "nav": {
     "home": "Home",
+    "workPlan": "Work Plan",
+    "youthAdvisors": "Youth Advisors Committee",
+    "scoutMovement": "Scout Movement in Egypt",
     "news": "News",
     "contact": "Contact"
   },
@@ -41,5 +44,17 @@
     "quickLinks": "Quick Links",
     "contact": "Contact",
     "rights": "All rights reserved."
+  },
+  "workPlan": {
+    "title": "Work Plan",
+    "content": "Content for the work plan will be added here."
+  },
+  "youthAdvisors": {
+    "title": "Youth Advisors Committee of the Arab Scout Committee",
+    "content": "Content about the Youth Advisors Committee will be added here."
+  },
+  "scoutMovement": {
+    "title": "Scout Movement in Egypt",
+    "content": "Content about the Scout Movement in Egypt will be added here."
   }
 }

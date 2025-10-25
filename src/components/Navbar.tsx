@@ -5,13 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Globe, Menu, X } from 'lucide-react';
+import { Globe, Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Navbar() {
   const { t } = useTranslation();
   const { language, toggleLanguage, isRTL } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,26 +34,102 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-3"
-          >
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={50}
-              height={50}
-              className="object-contain"
-            />
-            <span className={`text-xl font-bold ${
-              scrolled ? 'text-primary-700' : 'text-white'
-            } ${isRTL ? 'font-arabic' : ''}`}>
-              {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}
-            </span>
-          </Link>
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <Link
+              href="/"
+              className="flex items-center"
+            >
+              <span className={`text-lg sm:text-xl font-bold ${
+                scrolled ? 'text-primary-700' : 'text-white'
+              } ${isRTL ? 'font-arabic' : ''}`}>
+                {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}
+              </span>
+            </Link>
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+              <Image
+                src="/Logo 1 .png"
+                alt="Partner Logo 1"
+                width={60}
+                height={45}
+                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                priority
+              />
+              <Image
+                src="/Logo 2.png"
+                alt="Partner Logo 2"
+                width={60}
+                height={45}
+                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                priority
+              />
+              <Image
+                src="/Logo 3.png"
+                alt="Partner Logo 3"
+                width={60}
+                height={45}
+                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                priority
+              />
+              <Image
+                src="/Logo 4.png"
+                alt="Partner Logo 4"
+                width={60}
+                height={45}
+                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                priority
+              />
+              <Image
+                src="/Logo 5.png"
+                alt="Partner Logo 5"
+                width={60}
+                height={45}
+                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                priority
+              />
+            </div>
+          </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-6">
+            {/* Dropdown Menu */}
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`flex items-center gap-1 font-medium transition-opacity duration-200 hover:opacity-70 ${
+                  scrolled ? 'text-gray-700' : 'text-white'
+                } ${isRTL ? 'font-arabic' : ''}`}
+              >
+                <Menu size={18} />
+                <ChevronDown size={16} />
+              </button>
+              
+              {dropdownOpen && (
+                <div className={`absolute ${isRTL ? 'right-0' : 'left-0'} mt-2 w-64 bg-white rounded-lg shadow-lg py-2 z-50`}>
+                  <Link
+                    href="/work-plan"
+                    onClick={() => setDropdownOpen(false)}
+                    className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors ${isRTL ? 'text-right font-arabic' : 'text-left'}`}
+                  >
+                    {t('nav.workPlan')}
+                  </Link>
+                  <Link
+                    href="/youth-advisors"
+                    onClick={() => setDropdownOpen(false)}
+                    className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors ${isRTL ? 'text-right font-arabic' : 'text-left'}`}
+                  >
+                    {t('nav.youthAdvisors')}
+                  </Link>
+                  <Link
+                    href="/scout-movement"
+                    onClick={() => setDropdownOpen(false)}
+                    className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors ${isRTL ? 'text-right font-arabic' : 'text-left'}`}
+                  >
+                    {t('nav.scoutMovement')}
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <Link
               href="/"
               className={`font-medium transition-opacity duration-200 hover:opacity-70 ${
@@ -61,6 +138,7 @@ export default function Navbar() {
             >
               {t('nav.home')}
             </Link>
+            
             <Link
               href="/news"
               className={`font-medium transition-opacity duration-200 hover:opacity-70 ${
@@ -119,6 +197,33 @@ export default function Navbar() {
                 } ${isRTL ? 'font-arabic text-right' : 'text-left'}`}
               >
                 {t('nav.home')}
+              </Link>
+              <Link
+                href="/work-plan"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`font-medium transition-opacity duration-200 hover:opacity-70 px-4 py-2 ${
+                  scrolled ? 'text-gray-700' : 'text-white'
+                } ${isRTL ? 'font-arabic text-right' : 'text-left'}`}
+              >
+                {t('nav.workPlan')}
+              </Link>
+              <Link
+                href="/youth-advisors"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`font-medium transition-opacity duration-200 hover:opacity-70 px-4 py-2 ${
+                  scrolled ? 'text-gray-700' : 'text-white'
+                } ${isRTL ? 'font-arabic text-right' : 'text-left'}`}
+              >
+                {t('nav.youthAdvisors')}
+              </Link>
+              <Link
+                href="/scout-movement"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`font-medium transition-opacity duration-200 hover:opacity-70 px-4 py-2 ${
+                  scrolled ? 'text-gray-700' : 'text-white'
+                } ${isRTL ? 'font-arabic text-right' : 'text-left'}`}
+              >
+                {t('nav.scoutMovement')}
               </Link>
               <Link
                 href="/news"
