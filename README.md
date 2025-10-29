@@ -132,10 +132,6 @@ const socialLinks = [
 ];
 ```
 
-### 4. Add CV PDF
-
-1. Place your CV PDF file in `/public` folder as `cv-marwan-elagha.pdf`
-2. Or update the path in `src/components/CVSection.tsx` line 17
 
 ### 5. Update Contact Information
 
@@ -152,30 +148,6 @@ All text content is in translation files:
 
 Edit these files to update any text on the website.
 
-## 🚢 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. **Push your code to GitHub**
-
-2. **Import to Vercel**
-   - Go to [vercel.com](https://vercel.com)
-   - Click "New Project"
-   - Import your GitHub repository
-   - Vercel will auto-detect Next.js
-
-3. **Add Environment Variables**
-   
-   In Vercel project settings, add:
-   - `CONTACT_EMAIL`
-   - `SMTP_HOST`
-   - `SMTP_PORT`
-   - `SMTP_USER`
-   - `SMTP_PASS`
-
-4. **Deploy**
-   
-   Click "Deploy" and your site will be live!
 
 ### Build for Production
 
@@ -234,4 +206,4 @@ For questions or support, please use the contact form on the website.
 
 ---
 
-Built with ❤️ using Next.js and Tailwind CSS
+
