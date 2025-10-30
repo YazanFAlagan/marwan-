@@ -28,7 +28,7 @@ export default function Hero() {
       `}</style>
       
       {/* Text Overlay on the left */}
-      <div className="relative h-full flex items-start pt-16 sm:pt-0 sm:items-center">
+      <div className="relative h-full flex items-start pt-32 sm:pt-0 sm:items-center">
         <div className="w-full px-6 sm:px-8 lg:px-12" style={{ marginLeft: 0, marginRight: 'auto' }}>
           <div 
             className="p-4 sm:p-6 lg:p-8" 
