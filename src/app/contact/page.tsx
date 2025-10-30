@@ -32,7 +32,7 @@ export default function ContactPage() {
             >
               {t('contact.subtitle')}
             </p>
-            <div className="w-24 h-1 bg-primary-600 mx-auto mt-6 rounded-full" />
+            <div className="w-24 h-1 mx-auto mt-6 rounded-full" style={{ backgroundColor: '#5692b6' }} />
           </div>
         </div>
       </section>

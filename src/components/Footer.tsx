@@ -22,7 +22,12 @@ export default function Footer() {
                 {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}
               </h3>
               <div className="flex items-center gap-3 flex-wrap">
-                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer"
+                >
                   <Image
                     src="/Logo 1 .png"
                     alt="Partner Logo 1"
@@ -30,17 +35,27 @@ export default function Footer() {
                     height={50}
                     className="object-contain w-full h-full"
                   />
-                </div>
-                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                </a>
+                <a
+                  href="https://egyptscouts.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer"
+                >
                   <Image
                     src="/Logo 2.png"
                     alt="Partner Logo 2"
                     width={80}
-                    height={50}
-                    className="object-contain w-full h-full"
+                    height={40}
+                    className="object-contain"
                   />
-                </div>
-                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer"
+                >
                   <Image
                     src="/Logo 3.png"
                     alt="Partner Logo 3"
@@ -48,8 +63,13 @@ export default function Footer() {
                     height={50}
                     className="object-contain w-full h-full"
                   />
-                </div>
-                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                </a>
+                <a
+                  href="https://www.scout.org/ar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer"
+                >
                   <Image
                     src="/Logo 4.png"
                     alt="Partner Logo 4"
@@ -57,8 +77,13 @@ export default function Footer() {
                     height={50}
                     className="object-contain w-full h-full"
                   />
-                </div>
-                <div className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center">
+                </a>
+                <a
+                  href="https://www.emys.gov.eg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 rounded-lg p-2 w-24 h-16 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer"
+                >
                   <Image
                     src="/Logo 5.png"
                     alt="Partner Logo 5"
@@ -66,7 +91,7 @@ export default function Footer() {
                     height={50}
                     className="object-contain w-full h-full"
                   />
-                </div>
+                </a>
               </div>
             </div>
             <p className={`text-gray-400 ${isRTL ? 'font-arabic' : ''}`}>
@@ -102,32 +127,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/youth-advisors"
-                  className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
-                    isRTL ? 'font-arabic' : ''
-                  }`}
-                >
-                  {t('nav.youthAdvisors')}
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/scout-movement"
                   className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
                     isRTL ? 'font-arabic' : ''
                   }`}
                 >
                   {t('nav.scoutMovement')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/news"
-                  className={`text-gray-400 transition-opacity duration-200 hover:opacity-70 ${
-                    isRTL ? 'font-arabic' : ''
-                  }`}
-                >
-                  {t('nav.news')}
                 </Link>
               </li>
               <li>

@@ -9,8 +9,13 @@
   }
 
   body {
-    @apply bg-white text-gray-900;
+    background-color: #89b3cb !important;
+    @apply text-gray-900;
     font-family: var(--font-garamond) !important;
+  }
+  
+  html {
+    background-color: #89b3cb !important;
   }
 
   /* Apply Garamond to all elements by default */

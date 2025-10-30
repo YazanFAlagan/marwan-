@@ -1,75 +1,78 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Hero() {
-  const { t } = useTranslation();
-  const { isRTL } = useLanguage();
+  const { language } = useLanguage();
+  const isArabic = language === 'ar';
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/marwan.jpg')",
-          backgroundPosition: '-100px 20px',
+          backgroundImage: "url('/hero-marwan.jpg')",
         }}
-      >
-        {/* Gradient Overlay - darker on left, lighter on right where person is */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/20" />
-        {/* Spotlight effect on the person */}
-        <div 
-          className="absolute inset-0" 
-          style={{
-            background: 'radial-gradient(circle at 20% 40%, transparent 15%, rgba(0,0,0,0.3) 40%)'
-          }}
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div
-            className={`max-w-2xl ml-auto ${
-              isRTL ? 'text-right' : 'text-left'
-            }`}
+      />
+      
+      {/* Text Overlay on the left */}
+      <div className="relative h-full flex items-start pt-16 sm:pt-0 sm:items-center">
+        <div className="w-full px-6 sm:px-8 lg:px-12" style={{ marginLeft: 0, marginRight: 'auto' }}>
+          <div 
+            className="max-w-2xl p-6 sm:p-8 lg:p-10" 
+            style={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+              backdropFilter: 'blur(2px)',
+              borderRadius: '16px',
+              textAlign: 'left',
+              direction: 'ltr',
+              marginTop: '2rem',
+              marginLeft: '0',
+              marginRight: 'auto',
+              maxWidth: '90%'
+            }}
           >
-            <h1
-              className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${
-                isRTL ? 'font-arabic' : ''
-              }`}
+            {/* Name with purple color */}
+            <h1 
+              className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-4 ${isArabic ? 'font-arabic' : ''}`}
+              style={{ color: '#562c92' }}
             >
-              {t('hero.name')}
+              {isArabic ? 'مروان أحمد عوني الأغا' : 'Marwan Ahmed Awny Elagha'}
             </h1>
-            <p
-              className={`text-xl sm:text-2xl md:text-3xl text-white/90 mb-4 ${
-                isRTL ? 'font-arabic' : ''
-              }`}
-            >
-              {t('hero.title')}
-            </p>
-            <p
-              className={`text-lg sm:text-xl md:text-2xl text-white/80 mb-4 ${
-                isRTL ? 'font-arabic' : ''
-              }`}
-            >
-              {t('hero.subtitle')}
-            </p>
-            <p
-              className={`text-2xl sm:text-3xl font-bold text-primary-400 ${
-                isRTL ? 'font-arabic' : ''
-              }`}
-            >
-              {t('hero.years')}
+            
+            {/* Black line separator - half width and thin */}
+            <div 
+              className="mb-4"
+              style={{ 
+                width: '50%',
+                height: '3px', 
+                backgroundColor: 'black',
+                marginLeft: '0',
+                marginRight: 'auto'
+              }}
+            />
+            
+            {/* Description text in black - not bold */}
+            <p className={`text-2xl md:text-3xl lg:text-4xl text-black leading-relaxed ${isArabic ? 'font-arabic' : ''}`}>
+              {isArabic ? (
+                <>
+                  مرشح جمهورية مصر العربية<br />
+                  لعضوية لجنة مستشاري الشباب<br />
+                  للجنة الكشفية العربية 2025-2028
+                </>
+              ) : (
+                <>
+                  Candidate of Egypt for Membership<br />
+                  of the Youth Advisors Committee<br />
+                  of the Arab Scout Committee (2025–2028)
+                </>
+              )}
             </p>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator removed for formal style */}
     </section>
   );
 }

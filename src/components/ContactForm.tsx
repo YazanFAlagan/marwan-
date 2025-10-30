@@ -1,69 +1,32 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Send, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function ContactForm() {
   const { t } = useTranslation();
   const { isRTL } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    honeypot: '', // Spam protection
+  const [state, handleSubmit] = useForm('xjkpewvq', {
+    data: {
+      _honeypot: '', // This will be set by the hidden field
+    },
+    onError: (error: any) => {
+      console.error('Form submission error:', error);
+    },
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Honeypot check
-    if (formData.honeypot) {
-      return;
-    }
-
-    setStatus('sending');
-    setErrorMessage('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '', honeypot: '' });
-      } else {
-        setStatus('error');
-        setErrorMessage(data.error || t('contact.form.error'));
-      }
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage(t('contact.form.error'));
-    }
-  };
+  // Safely handle Formspree's state
+  const hasErrors = state.errors && state.errors.length > 0;
+  const status = state.submitting 
+    ? 'sending' 
+    : state.succeeded 
+      ? 'success' 
+      : hasErrors 
+        ? 'error' 
+        : 'idle';
 
   // Social media links (formal, no hover effects)
   const socialLinks = [
@@ -102,11 +65,12 @@ export default function ContactForm() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg shadow-md transition-opacity duration-200 hover:opacity-85"
+              className="flex items-center gap-2 px-6 py-3 rounded-lg shadow-md transition-opacity duration-200 hover:opacity-85"
+              style={{ backgroundColor: '#94bad1', color: 'black' }}
               aria-label={link.name}
             >
               <link.icon size={20} />
-              <span className="font-medium">{link.name}</span>
+              <span>{link.name}</span>
             </a>
           ))}
         </div>
@@ -118,9 +82,7 @@ export default function ContactForm() {
           {/* Honeypot field (hidden) */}
           <input
             type="text"
-            name="honeypot"
-            value={formData.honeypot}
-            onChange={handleChange}
+            name="_honeypot"
             className="hidden"
             tabIndex={-1}
             autoComplete="off"
@@ -140,8 +102,6 @@ export default function ContactForm() {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
-              onChange={handleChange}
               required
               className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
                 isRTL ? 'text-right font-arabic' : 'text-left'
@@ -163,8 +123,6 @@ export default function ContactForm() {
               type="email"
               id="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
               required
               className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${
                 isRTL ? 'text-right font-arabic' : 'text-left'
@@ -186,8 +144,6 @@ export default function ContactForm() {
               type="text"
               id="subject"
               name="subject"
-              value={formData.subject}
-              onChange={handleChange}
               className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all ${
                 isRTL ? 'text-right font-arabic' : 'text-left'
               }`}
@@ -207,8 +163,6 @@ export default function ContactForm() {
             <textarea
               id="message"
               name="message"
-              value={formData.message}
-              onChange={handleChange}
               required
               rows={6}
               className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none ${
@@ -220,17 +174,18 @@ export default function ContactForm() {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={status === 'sending'}
-            className={`w-full flex items-center justify-center gap-3 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg shadow-md transition-opacity duration-200 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:opacity-50 ${
+            disabled={state.submitting}
+            className={`w-full flex items-center justify-center gap-3 px-6 py-4 rounded-lg shadow-md transition-opacity duration-200 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:opacity-50 ${
               isRTL ? 'font-arabic' : ''
             }`}
+            style={{ backgroundColor: '#94bad1', color: 'black' }}
           >
             <Send size={20} />
             {status === 'sending' ? t('contact.form.sending') : t('contact.form.send')}
           </button>
 
           {/* Status Messages */}
-          {status === 'success' && (
+          {state.succeeded ? (
             <div
               className={`p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg ${
                 isRTL ? 'font-arabic text-right' : 'text-left'
@@ -238,16 +193,44 @@ export default function ContactForm() {
             >
               {t('contact.form.success')}
             </div>
-          )}
-
-          {status === 'error' && (
-            <div
-              className={`p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg ${
-                isRTL ? 'font-arabic text-right' : 'text-left'
-              }`}
-            >
-              {errorMessage}
-            </div>
+          ) : (
+            <>
+              {state.errors && (
+                <div className="space-y-2">
+                  <ValidationError 
+                    prefix="Name" 
+                    field="name"
+                    errors={state.errors}
+                    className={`block p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg ${
+                      isRTL ? 'font-arabic text-right' : 'text-left'
+                    }`}
+                  />
+                  <ValidationError 
+                    prefix="Email" 
+                    field="email"
+                    errors={state.errors}
+                    className={`block p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg ${
+                      isRTL ? 'font-arabic text-right' : 'text-left'
+                    }`}
+                  />
+                  <ValidationError 
+                    prefix="Message" 
+                    field="message"
+                    errors={state.errors}
+                    className={`block p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg ${
+                      isRTL ? 'font-arabic text-right' : 'text-left'
+                    }`}
+                  />
+                  {Object.keys(state.errors).length > 0 && (
+                  <div className={`p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg ${
+                    isRTL ? 'font-arabic text-right' : 'text-left'
+                  }`}>
+                    {t('contact.form.error')}
+                  </div>
+                )}
+                </div>
+              )}
+            </>
           )}
         </form>
       </div>

@@ -27,9 +27,10 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b-2 border-primary-200'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b-2'
           : 'bg-black/30 backdrop-blur-sm border-b border-white/20'
       }`}
+      style={scrolled ? { borderBottomColor: '#5692b6' } : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -39,53 +40,88 @@ export default function Navbar() {
               href="/"
               className="flex items-center"
             >
-              <span className={`text-lg sm:text-xl font-bold ${
-                scrolled ? 'text-primary-700' : 'text-white'
-              } ${isRTL ? 'font-arabic' : ''}`}>
+              <span 
+                className={`text-lg sm:text-xl font-bold ${isRTL ? 'font-arabic' : ''}`}
+                style={{ color: scrolled ? '#602498' : 'white' }}
+              >
                 {isRTL ? 'مروان أحمد عوني الأغا' : 'Marwan Awny Elagha'}
               </span>
             </Link>
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              <Image
-                src="/Logo 1 .png"
-                alt="Partner Logo 1"
-                width={60}
-                height={45}
-                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
-                priority
-              />
-              <Image
-                src="/Logo 2.png"
-                alt="Partner Logo 2"
-                width={60}
-                height={45}
-                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
-                priority
-              />
-              <Image
-                src="/Logo 3.png"
-                alt="Partner Logo 3"
-                width={60}
-                height={45}
-                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
-                priority
-              />
-              <Image
-                src="/Logo 4.png"
-                alt="Partner Logo 4"
-                width={60}
-                height={45}
-                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
-                priority
-              />
-              <Image
-                src="/Logo 5.png"
-                alt="Partner Logo 5"
-                width={60}
-                height={45}
-                className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
-                priority
-              />
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-110 cursor-pointer"
+              >
+                <Image
+                  src="/Logo 1 .png"
+                  alt="Partner Logo 1"
+                  width={60}
+                  height={45}
+                  className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                  priority
+                />
+              </a>
+              <a
+                href="https://egyptscouts.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-110 cursor-pointer"
+              >
+                <Image
+                  src="/Logo 2.png"
+                  alt="Partner Logo 2"
+                  width={60}
+                  height={40}
+                  className="object-contain"
+                />
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-110 cursor-pointer"
+              >
+                <Image
+                  src="/Logo 3.png"
+                  alt="Partner Logo 3"
+                  width={60}
+                  height={45}
+                  className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                  priority
+                />
+              </a>
+              <a
+                href="https://www.scout.org/ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-110 cursor-pointer"
+              >
+                <Image
+                  src="/Logo 4.png"
+                  alt="Partner Logo 4"
+                  width={60}
+                  height={45}
+                  className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                  priority
+                />
+              </a>
+              <a
+                href="https://www.emys.gov.eg/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform duration-300 hover:scale-110 cursor-pointer"
+              >
+                <Image
+                  src="/Logo 5.png"
+                  alt="Partner Logo 5"
+                  width={60}
+                  height={45}
+                  className="object-contain w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12"
+                  priority
+                />
+              </a>
             </div>
           </div>
 
@@ -113,13 +149,6 @@ export default function Navbar() {
                     {t('nav.workPlan')}
                   </Link>
                   <Link
-                    href="/youth-advisors"
-                    onClick={() => setDropdownOpen(false)}
-                    className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors ${isRTL ? 'text-right font-arabic' : 'text-left'}`}
-                  >
-                    {t('nav.youthAdvisors')}
-                  </Link>
-                  <Link
                     href="/scout-movement"
                     onClick={() => setDropdownOpen(false)}
                     className={`block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors ${isRTL ? 'text-right font-arabic' : 'text-left'}`}
@@ -140,14 +169,6 @@ export default function Navbar() {
             </Link>
             
             <Link
-              href="/news"
-              className={`font-medium transition-opacity duration-200 hover:opacity-70 ${
-                scrolled ? 'text-gray-700' : 'text-white'
-              } ${isRTL ? 'font-arabic' : ''}`}
-            >
-              {t('nav.news')}
-            </Link>
-            <Link
               href="/contact"
               className={`font-medium transition-opacity duration-200 hover:opacity-70 ${
                 scrolled ? 'text-gray-700' : 'text-white'
@@ -159,15 +180,12 @@ export default function Navbar() {
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-opacity duration-200 hover:opacity-80 ${
-                scrolled
-                  ? 'bg-primary-100 text-primary-700'
-                  : 'bg-white/20 text-white'
-              }`}
+              className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-opacity duration-200 hover:opacity-80 ${language === 'en' ? 'font-arabic' : ''}`}
+              style={{ backgroundColor: '#94bad1', color: 'black' }}
               aria-label="Toggle language"
             >
               <Globe size={18} />
-              <span className={`text-sm font-medium ${language === 'en' ? 'font-arabic' : ''}`}>
+              <span className="text-sm">
                 {language === 'en' ? 'العربية' : 'English'}
               </span>
             </button>
@@ -208,15 +226,6 @@ export default function Navbar() {
                 {t('nav.workPlan')}
               </Link>
               <Link
-                href="/youth-advisors"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`font-medium transition-opacity duration-200 hover:opacity-70 px-4 py-2 ${
-                  scrolled ? 'text-gray-700' : 'text-white'
-                } ${isRTL ? 'font-arabic text-right' : 'text-left'}`}
-              >
-                {t('nav.youthAdvisors')}
-              </Link>
-              <Link
                 href="/scout-movement"
                 onClick={() => setMobileMenuOpen(false)}
                 className={`font-medium transition-opacity duration-200 hover:opacity-70 px-4 py-2 ${
@@ -224,15 +233,6 @@ export default function Navbar() {
                 } ${isRTL ? 'font-arabic text-right' : 'text-left'}`}
               >
                 {t('nav.scoutMovement')}
-              </Link>
-              <Link
-                href="/news"
-                onClick={() => setMobileMenuOpen(false)}
-                className={`font-medium transition-opacity duration-200 hover:opacity-70 px-4 py-2 ${
-                  scrolled ? 'text-gray-700' : 'text-white'
-                } ${isRTL ? 'font-arabic text-right' : 'text-left'}`}
-              >
-                {t('nav.news')}
               </Link>
               <Link
                 href="/contact"
@@ -250,15 +250,12 @@ export default function Navbar() {
                   toggleLanguage();
                   setMobileMenuOpen(false);
                 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-opacity duration-200 hover:opacity-80 mx-4 ${
-                  scrolled
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'bg-white/20 text-white'
-                } ${isRTL ? 'flex-row-reverse' : ''}`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-opacity duration-200 hover:opacity-80 mx-4 ${isRTL ? 'flex-row-reverse' : ''} ${language === 'en' ? 'font-arabic' : ''}`}
+                style={{ backgroundColor: '#94bad1', color: 'black' }}
                 aria-label="Toggle language"
               >
                 <Globe size={18} />
-                <span className={`text-sm font-medium ${language === 'en' ? 'font-arabic' : ''}`}>
+                <span className="text-sm">
                   {language === 'en' ? 'العربية' : 'English'}
                 </span>
               </button>
