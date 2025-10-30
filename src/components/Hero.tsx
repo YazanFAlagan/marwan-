@@ -37,7 +37,7 @@ export default function Hero() {
           >
             {/* Name with purple color */}
             <h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isArabic ? 'font-arabic' : ''}`}
               style={{ color: '#562c92' }}
             >
               {isArabic ? 'مروان أحمد عوني الأغا' : 'Marwan Ahmed Awny Elagha'}
@@ -56,7 +56,7 @@ export default function Hero() {
             />
             
             {/* Description text in black - not bold */}
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black leading-relaxed">
+            <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl text-black leading-relaxed ${isArabic ? 'font-arabic' : ''}`}>
               {isArabic ? (
                 <>
                   مرشح جمهورية مصر العربية<br />
