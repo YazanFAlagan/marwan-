@@ -4,23 +4,22 @@
 
 @layer base {
   :root {
-    --font-garamond: 'EB Garamond', 'Garamond', serif;
-    --font-arabic: 'Amiri', 'Sakkal Majalla', 'Traditional Arabic', serif;
+    --font-unified: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   }
 
   body {
     background-color: #89b3cb !important;
     @apply text-gray-900;
-    font-family: var(--font-garamond) !important;
+    font-family: var(--font-unified) !important;
   }
   
   html {
     background-color: #89b3cb !important;
   }
 
-  /* Apply Garamond to all elements by default */
+  /* Apply unified font to all elements */
   * {
-    font-family: var(--font-garamond);
+    font-family: var(--font-unified) !important;
   }
 
   /* RTL Support */
@@ -32,10 +31,10 @@
     direction: ltr;
   }
 
-  /* Arabic Font - Override for Arabic text */
+  /* Keep font-arabic class for compatibility but use same font */
   .font-arabic,
   .font-arabic * {
-    font-family: var(--font-arabic) !important;
+    font-family: var(--font-unified) !important;
   }
 
   /* Smooth scrolling */
