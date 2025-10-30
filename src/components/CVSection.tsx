@@ -31,7 +31,7 @@ export default function CVSection() {
           >
             {t('cv.title')}
           </h2>
-          <div className="w-24 h-1 bg-primary-600 mx-auto rounded-full" />
+          <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: '#5692b6' }} />
         </div>
 
         {/* Two Column Layout */}
@@ -50,9 +50,10 @@ export default function CVSection() {
               {/* Download CV Button */}
               <button
                 onClick={handleDownloadCV}
-                className={`mt-8 inline-flex items-center gap-3 px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg shadow-md transition-opacity duration-200 hover:opacity-90 ${
+                className={`mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-lg shadow-md transition-opacity duration-200 hover:opacity-90 ${
                   isRTL ? 'font-arabic' : ''
                 }`}
+                style={{ backgroundColor: '#94bad1', color: 'black' }}
               >
                 <Download size={20} />
                 {t('cv.download')}

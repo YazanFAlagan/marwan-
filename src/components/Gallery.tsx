@@ -141,9 +141,12 @@ export default function Gallery() {
             alt={images[currentIndex].alt}
             fill
             className="object-cover transition-all duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            quality={95}
-            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw"
+            quality={85}
+            priority={currentIndex === 0} // Only prioritize first image
+            loading={currentIndex === 0 ? 'eager' : 'lazy'}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAADAAQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABykX//Z"
           />
           
           {/* Hover overlay hint */}
