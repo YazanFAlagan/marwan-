@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --font-garamond: 'EB Garamond', 'Garamond', serif;
-    --font-arabic: 'Amiri', 'Sakkal Majalla', 'Traditional Arabic', serif;
+    --font-arabic: 'Sakkal Majalla', 'Amiri', 'Traditional Arabic', serif;
   }
 
   body {
