@@ -13,13 +13,10 @@ export default function ContactForm() {
     data: {
       _honeypot: '', // This will be set by the hidden field
     },
-    onError: (error: any) => {
-      console.error('Form submission error:', error);
-    },
   });
 
   // Safely handle Formspree's state
-  const hasErrors = state.errors && state.errors.length > 0;
+  const hasErrors = state.errors && Object.keys(state.errors).length > 0;
   const status = state.submitting 
     ? 'sending' 
     : state.succeeded 
@@ -221,13 +218,6 @@ export default function ContactForm() {
                       isRTL ? 'font-arabic text-right' : 'text-left'
                     }`}
                   />
-                  {Object.keys(state.errors).length > 0 && (
-                  <div className={`p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg ${
-                    isRTL ? 'font-arabic text-right' : 'text-left'
-                  }`}>
-                    {t('contact.form.error')}
-                  </div>
-                )}
                 </div>
               )}
             </>
