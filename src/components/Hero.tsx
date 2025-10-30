@@ -18,25 +18,26 @@ export default function Hero() {
       />
       
       {/* Text Overlay on the left */}
-      <div className="relative h-full flex items-start pt-16 sm:pt-0 sm:items-center">
+      <div className="relative h-full flex items-start pt-32 sm:pt-0 sm:items-center">
         <div className="w-full px-6 sm:px-8 lg:px-12" style={{ marginLeft: 0, marginRight: 'auto' }}>
           <div 
-            className="max-w-2xl p-6 sm:p-8 lg:p-10" 
-            dir={isArabic ? 'rtl' : 'ltr'}
+            className="max-w-lg p-4 sm:p-6 lg:p-8" 
             style={{ 
               backgroundColor: 'rgba(255, 255, 255, 0.05)', 
               backdropFilter: 'blur(2px)',
               borderRadius: '16px',
-              textAlign: isArabic ? 'right' : 'left',
+              textAlign: 'left',
+              direction: 'ltr',
               marginTop: '2rem',
-              marginLeft: isArabic ? 'auto' : '0',
-              marginRight: isArabic ? '0' : 'auto',
-              maxWidth: '90%'
+              marginLeft: '0',
+              marginRight: 'auto',
+              maxWidth: '65%',
+              width: 'fit-content'
             }}
           >
             {/* Name with purple color */}
             <h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
               style={{ color: '#562c92' }}
             >
               {isArabic ? 'مروان أحمد عوني الأغا' : 'Marwan Ahmed Awny Elagha'}
@@ -48,12 +49,14 @@ export default function Hero() {
               style={{ 
                 width: '50%',
                 height: '3px', 
-                backgroundColor: 'black' 
+                backgroundColor: 'black',
+                marginLeft: '0',
+                marginRight: 'auto'
               }}
             />
             
             {/* Description text in black - not bold */}
-            <p className="text-2xl md:text-3xl lg:text-4xl text-black leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black leading-relaxed">
               {isArabic ? (
                 <>
                   مرشح جمهورية مصر العربية<br />
