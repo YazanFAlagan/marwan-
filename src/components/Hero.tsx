@@ -11,17 +11,27 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: "url('/hero-marwan.jpg')",
+          backgroundPosition: 'calc(50% - 10px) center',
         }}
       />
+      
+      {/* Desktop background position */}
+      <style jsx>{`
+        @media (min-width: 640px) {
+          div[style*="background-position"] {
+            background-position: center center !important;
+          }
+        }
+      `}</style>
       
       {/* Text Overlay on the left */}
       <div className="relative h-full flex items-start pt-16 sm:pt-0 sm:items-center">
         <div className="w-full px-6 sm:px-8 lg:px-12" style={{ marginLeft: 0, marginRight: 'auto' }}>
           <div 
-            className="max-w-2xl p-6 sm:p-8 lg:p-10" 
+            className="p-4 sm:p-6 lg:p-8" 
             style={{ 
               backgroundColor: 'rgba(255, 255, 255, 0.05)', 
               backdropFilter: 'blur(2px)',
@@ -31,12 +41,13 @@ export default function Hero() {
               marginTop: '2rem',
               marginLeft: '0',
               marginRight: 'auto',
+              width: 'fit-content',
               maxWidth: '90%'
             }}
           >
             {/* Name with purple color */}
             <h1 
-              className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-4 ${isArabic ? 'font-arabic' : ''}`}
+              className={`text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 ${isArabic ? 'font-arabic' : ''}`}
               style={{ color: '#562c92' }}
             >
               {isArabic ? 'مروان أحمد عوني الأغا' : 'Marwan Ahmed Awny Elagha'}
@@ -55,7 +66,7 @@ export default function Hero() {
             />
             
             {/* Description text in black - not bold */}
-            <p className={`text-2xl md:text-3xl lg:text-4xl text-black leading-relaxed ${isArabic ? 'font-arabic' : ''}`}>
+            <p className={`text-base sm:text-lg md:text-2xl lg:text-3xl text-black leading-relaxed ${isArabic ? 'font-arabic' : ''}`}>
               {isArabic ? (
                 <>
                   مرشح جمهورية مصر العربية<br />
