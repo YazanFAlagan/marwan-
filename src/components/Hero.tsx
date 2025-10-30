@@ -11,11 +11,21 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: "url('/hero-marwan.jpg')",
+          backgroundPosition: 'calc(50% - 20px) center',
         }}
       />
+      
+      {/* Desktop background position */}
+      <style jsx>{`
+        @media (min-width: 640px) {
+          div[style*="background-position"] {
+            background-position: center center !important;
+          }
+        }
+      `}</style>
       
       {/* Text Overlay on the left */}
       <div className="relative h-full flex items-start pt-32 sm:pt-0 sm:items-center">
