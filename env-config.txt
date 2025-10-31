@@ -1,0 +1,20 @@
+# Copy this content to your .env.local file
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://marwanawny.com
+
+# Contact Email (where form submissions will be sent)
+CONTACT_EMAIL=marwan@example.com
+
+# SMTP Configuration (alternative to SendGrid)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+
+# Contentful CMS Configuration
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID=knpmt8d6x0j9
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=O1dJsRzsAolnbc1cF5VfE-GFH453iu1wnLjG-51Dm6I
+
+# Google Analytics (add this when you get your GA measurement ID)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
