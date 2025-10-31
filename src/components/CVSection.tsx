@@ -3,21 +3,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Download } from 'lucide-react';
 import Gallery from './Gallery';
 
 export default function CVSection() {
   const { t } = useTranslation();
   const { isRTL } = useLanguage();
-
-  const handleDownloadCV = () => {
-    // TODO: Replace with actual CV PDF file path
-    // For now, this will trigger a download of a placeholder
-    const link = document.createElement('a');
-    link.href = '/cv-marwan-elagha.pdf';
-    link.download = 'CV-Marwan-Ahmed-El-Agha.pdf';
-    link.click();
-  };
 
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-primary-50">
@@ -46,18 +36,6 @@ export default function CVSection() {
               >
                 {t('cv.content')}
               </p>
-
-              {/* Download CV Button */}
-              <button
-                onClick={handleDownloadCV}
-                className={`mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-lg shadow-md transition-opacity duration-200 hover:opacity-90 ${
-                  isRTL ? 'font-arabic' : ''
-                }`}
-                style={{ backgroundColor: '#94bad1', color: 'black' }}
-              >
-                <Download size={20} />
-                {t('cv.download')}
-              </button>
             </div>
           </div>
 

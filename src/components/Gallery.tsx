@@ -14,7 +14,7 @@ export default function Gallery() {
   const images = [
     {
       id: 1,
-      src: '/1.jpg',
+      src: '/scout-photo-new.jpg',
       alt: 'Scouting Event 1',
       captionEn: 'World Scout Conference',
       captionAr: 'المؤتمر الكشفي العالمي'
@@ -28,7 +28,7 @@ export default function Gallery() {
     },
     {
       id: 3,
-      src: '/3.jpg',
+      src: '/1.jpg',
       alt: 'Scouting Event 3',
       captionEn: 'Youth Leadership Forum',
       captionAr: 'منتدى القيادة الشبابية'
