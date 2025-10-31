@@ -7,9 +7,13 @@ A modern, bilingual (Arabic/English) responsive personal website for Marwan Ahme
 - **Bilingual Support**: Seamless switching between Arabic and English with full RTL support
 - **Responsive Design**: Optimized for all devices (mobile, tablet, desktop)
 - **Modern UI**: Clean, elegant design with smooth transitions and animations
+- **Contentful CMS**: Easy content management for news, work plans, and gallery
+- **Google Analytics**: Track visitor behavior and site performance
+- **SEO Optimized**: Automatic sitemap, robots.txt, and Search Console ready
 - **Contact Form**: Functional contact form with email integration
 - **Accessibility**: WCAG compliant with keyboard navigation and ARIA labels
 - **Performance**: Built with Next.js for optimal performance and SEO
+- **Vercel Deployment**: One-click deployment with custom domain support
 
 ## 🚀 Quick Start
 
@@ -36,11 +40,22 @@ A modern, bilingual (Arabic/English) responsive personal website for Marwan Ahme
    
    Edit `.env.local` and add your configuration:
    ```env
+   # Site Configuration
+   NEXT_PUBLIC_SITE_URL=https://marwanawny.com
+   
+   # Contact Email
    CONTACT_EMAIL=your-email@example.com
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=587
    SMTP_USER=your-email@gmail.com
    SMTP_PASS=your-app-password
+   
+   # Contentful CMS
+   NEXT_PUBLIC_CONTENTFUL_SPACE_ID=your_contentful_space_id
+   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=your_contentful_access_token
+   
+   # Google Analytics
+   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
    ```
 
    **For Gmail users**: You need to generate an App Password:
@@ -161,10 +176,13 @@ npm start
 - **Framework**: Next.js 14 (React)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
+- **CMS**: Contentful
+- **Analytics**: Google Analytics
 - **Internationalization**: react-i18next
 - **Email**: Nodemailer
 - **Icons**: Lucide React
-- **Deployment**: Vercel-ready
+- **Deployment**: Vercel
+- **SEO**: Next.js Metadata API, Sitemap, Robots.txt
 
 ## 📧 Contact Form Features
 
@@ -197,6 +215,23 @@ npm start
 ## 📝 License
 
 This is a personal website project. All rights reserved.
+
+## 🚀 Deployment
+
+This website is configured for deployment on Vercel with the custom domain **marwanawny.com**.
+
+### Quick Deploy
+
+See [QUICK_START.md](./QUICK_START.md) for a 5-minute deployment guide.
+
+### Detailed Instructions
+
+See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for comprehensive deployment instructions including:
+- Vercel deployment setup
+- Custom domain configuration (marwanawny.com)
+- Contentful CMS integration
+- Google Analytics setup
+- Google Search Console configuration
 
 ## 👤 Contact
 

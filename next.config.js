@@ -27,6 +27,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'via.placeholder.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'downloads.ctfassets.net',
+      },
     ],
   },
   async headers() {
@@ -40,11 +48,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://formspree.io",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://formspree.io https://www.googletagmanager.com https://www.google-analytics.com",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: https: blob:",
+              "img-src 'self' data: https: blob: https://images.ctfassets.net https://downloads.ctfassets.net https://www.google-analytics.com",
               "font-src 'self' data:",
-              "connect-src 'self' https://formspree.io",
+              "connect-src 'self' https://formspree.io https://cdn.contentful.com https://www.google-analytics.com https://analytics.google.com",
               "frame-src 'self' https://formspree.io",
               "media-src 'self'",
               "object-src 'none'",

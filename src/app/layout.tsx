@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { EB_Garamond, Amiri } from 'next/font/google';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import './globals.css';
 
 // Preload fonts with display swap for better performance
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   description: 'Candidate of the Arab Republic of Egypt for the Arab Scout Committee – Youth Advisors (2025–2028)',
   keywords: 'Marwan Elagha, Arab Scout Committee, Youth Advisors, Scouting, Egypt',
   authors: [{ name: 'Marwan Ahmed Awny Elagha' }],
-  metadataBase: new URL('https://marwanelagha.com'),
+  metadataBase: new URL('https://marwanawny.com'),
   openGraph: {
     title: 'Marwan Ahmed Awny Elagha | Arab Scout Committee Candidate',
     description: 'Candidate of the Arab Republic of Egypt for the Arab Scout Committee – Youth Advisors (2025–2028)',
@@ -89,6 +90,7 @@ export default function RootLayout({
         }} />
       </head>
       <body className={`${garamond.variable} ${amiri.variable} font-sans antialiased`}>
+        <GoogleAnalytics />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
