@@ -19,7 +19,6 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
-  distDir: 'build',
   reactStrictMode: true,
   images: {
     remotePatterns: [
