@@ -1,24 +1,32 @@
-# Netlify Deployment Fix
+# Netlify Deployment Fix - URGENT ACTION REQUIRED
 
 ## Problem
-The Netlify deploy is failing because the **Publish directory** is set to `.next` in the Netlify UI, which conflicts with the `@netlify/plugin-nextjs` plugin.
+The Netlify deploy is failing with: **"Build script returned non-zero exit code: 2"**
+
+This happens because the **Publish directory is set to `.next` in the Netlify UI**, which conflicts with the `@netlify/plugin-nextjs` plugin.
 
 ## Root Cause
-- The error: "Your publish directory does not contain expected Next.js build output"
+- The build completes successfully (Next.js generates all pages)
+- But Netlify's plugin fails because it expects NO publish directory to be set
 - The resolved config shows: `publish: /opt/build/repo/.next` and `publishOrigin: ui`
-- The `@netlify/plugin-nextjs` expects to manage Next.js output itself and produces files under `.netlify/`
-- Setting publish to `.next` makes the plugin think expected output is missing
+- The `@netlify/plugin-nextjs` manages Next.js output itself and produces files under `.netlify/`
+- Setting publish to `.next` makes the plugin fail during the packaging step
 
-## Solution
+## Solution - CRITICAL STEPS
 
-### Step 1: Clear the Publish Directory in Netlify UI
+### Step 1: Clear the Publish Directory in Netlify UI (MUST DO THIS)
 
-1. Go to your Netlify site dashboard
-2. Navigate to: **Site settings** → **Build & deploy** → **Continuous Deployment**
-3. Under **Build settings**, click **Edit settings**
-4. Find the **Publish directory** field (currently set to `.next`)
-5. **Clear/delete** the `.next` value (leave it empty)
-6. Click **Save**
+**This is the ONLY fix needed - the code is correct!**
+
+1. Log in to Netlify: https://app.netlify.com
+2. Select your site (marwan website)
+3. Go to: **Site settings** → **Build & deploy** → **Continuous Deployment**
+4. Scroll to **Build settings** section
+5. Click **Edit settings** button
+6. Find the **Publish directory** field - it currently shows `.next`
+7. **DELETE the `.next` text completely** (leave the field EMPTY or blank)
+8. Click **Save** button
+9. The field should now be empty or show a placeholder like "e.g., public"
 
 ### Step 2: Verify netlify.toml Configuration
 
@@ -41,8 +49,11 @@ Your `netlify.toml` is already correct:
 
 After clearing the publish directory in the UI:
 1. Go to **Deploys** tab in Netlify
-2. Click **Trigger deploy** → **Deploy site**
-3. The build should now succeed
+2. Click **Trigger deploy** → **Clear cache and deploy site** (recommended)
+3. Watch the build log - it should now complete successfully
+4. The site will be live at your Netlify URL
+
+**Expected result:** Build will complete with "Site is live" message
 
 ## Why This Works
 
